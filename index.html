@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    
+    <div class="caixa">
+        <div class="container">
+            <div class="containerFilho">
+                <input id='horas' type="number" placeholder="Digite a hora" max="6">
+                <input id="minutos" type="number" placeholder="Digite os minutos" max="59" min="0">
+                <input id="pessoas" type="number" placeholder="Quantidade de pessoas" max="10" min="1">
+                <button onclick="calcular()">Calcular</button>
+                <div class="resultado">
+                    <p id="paragrafo">Resultado</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
