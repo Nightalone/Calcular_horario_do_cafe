@@ -4,9 +4,12 @@ function calcular(){
     let minutos = parseInt(document.querySelector('#minutos').value)
     let qtdPessoas = parseInt(document.querySelector('#pessoas').value)
 
-    var converterHoras = ((horas * 60) + minutos) / qtdPessoas 
+    var converterHoras = parseInt(((horas * 60) + minutos) / qtdPessoas) 
     
-    if(converterHoras >= 60 && converterHoras <= 119){
+    if(converterHoras < 60){
+        var restosMinutos = parseInt(converterHoras)
+        var converterHoras = ''
+    }else if(converterHoras >= 60 && converterHoras <= 119){
         var restosMinutos = converterHoras - 60
     }else if(converterHoras >= 120 && converterHoras <= 179){
         var restosMinutos = converterHoras - 120 
@@ -64,12 +67,14 @@ function calcular(){
         converterHoras = 6
     }
 
-    if(restosMinutos < 10){
+    if(restosMinutos < 60 && converterHoras == ''){
+        document.querySelector('#paragrafo').innerHTML = restosMinutos + (' MINUTOS')
+    }else if(restosMinutos < 10){
         document.querySelector('#paragrafo').innerHTML = converterHoras +' : 0'+ parseInt(restosMinutos)
+    }else if(restosMinutos < 1){
+        document.querySelector('#paragrafo').innerHTML = converterHoras +' : 00'
     }else{
         document.querySelector('#paragrafo').innerHTML = converterHoras +' : '+ parseInt(restosMinutos)
     }
-
-    
 
 }
